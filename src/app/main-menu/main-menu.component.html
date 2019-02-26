@@ -1,6 +1,10 @@
-<button class="main_menu" (click)="openMenu()">Menu</button>
-<div class="options_container" *ngIf="menuIsOpen">
-  <div class="option" *ngFor="let option of options">
-    <div id="{{option.id}}" (click)=option.action()></div>
+<div class="menu_component_container">
+  <div class="options_container" *ngIf="menuIsOpen">
+    <div class="option" *ngFor="let option of options">
+      <div id="{{option.id}}" (click)="option.action()"></div>
+    </div>
+  </div>
+  <div class="button_container" (click)="openMenu()">
+    <button class="main_menu"><i class="fas fa-plus"></i></button>
   </div>
 </div>

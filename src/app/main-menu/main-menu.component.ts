@@ -17,21 +17,28 @@ onClick(btn){
       id: 'one',
       icon: '',
       action: this.createNewWorkout,
-      color: this.randomColor()
+      color: this.randomColor(),
+      positionTop: '56px',
+      positionLeft: '48px'
     },
     {
       id: 'two',
       icon: '',
       action: this.createNewWorkout,
-      color: this.randomColor()
+      color: this.randomColor(),
+      positionTop: '-12px',
+      positionLeft: '-9px'
     },
     {
       id: 'three',
       icon: '',
       action: this.createNewWorkout,
-      color: this.randomColor()
+      color: this.randomColor(),
+      positionTop: '-23px',
+      positionLeft: ''
     }
-  ]
+  ];
+
   menuIsOpen: boolean = false;
 
   constructor() { }
@@ -41,7 +48,10 @@ onClick(btn){
 
   
   listenForNextClick = (event) => {
-    if(event.target.className !== 'main_menu'){
+    const allowedClasses:any = ['button_container', 'main_menu', 'fas fa-plus'];
+    if( _.indexOf(allowedClasses, event.target.className) > -1) {
+      return;
+    } else {
       this.closeMenu();
     }
   }
@@ -68,6 +78,8 @@ onClick(btn){
     setTimeout(() => {
       _.forEach(this.options, e => {
         $('#'+ e.id).css('background', e.color);
+        $('#'+ e.id).css('top', e.positionTop);
+        $('#'+ e.id).css('left', e.positionLeft);
       });
     })
   }

@@ -1,17 +1,69 @@
-.main_menu {
+.menu_component_container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.button_container {
     height: 50px;
     width: 50px;
-    color: red;
-    border-radius: 50%;
+    float: right;
+    .main_menu {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        background: cornflowerblue;
+        border-radius: 50%;
+        border-color: transparent;
+        i {
+            font-size: 28px;
+        }
+    }
+    .main_menu:focus {
+        outline: none;
+    }
 }
+.button_container:focus {
+    outline: none;
+}
+
 .options_container {
-    border: 1px dashed blue;
     display: flex;
     width: fit-content;
+    height: 113px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
 }
 .option > div{
+    position: relative;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     margin: 5px;
+}
+
+@keyframes grow {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+#one {
+    transform: scaleX(0);
+    animation: grow ease 0.3s forwards;
+    animation-delay: 0.4s;
+}
+#two {
+    transform: scaleX(0);
+    animation: grow ease 0.3s forwards;
+    animation-delay: 0.2s;
+}
+#three {
+    transform: scaleX(0);
+    animation: grow ease 0.3s forwards;
 }
