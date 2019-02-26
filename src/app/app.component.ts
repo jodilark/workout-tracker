@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as _ from "lodash";
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-root',
