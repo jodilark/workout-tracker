@@ -15,27 +15,30 @@ onClick(btn){
   options:any = [
     {
       id: 'one',
-      icon: '',
-      action: this.createNewWorkout,
+      icon: 'fas fa-weight-hanging',
+      action: this.navigate,
       color: this.randomColor(),
       positionTop: '56px',
-      positionLeft: '48px'
+      positionLeft: '48px',
+      route: '/create-workout'
     },
     {
       id: 'two',
-      icon: '',
-      action: this.createNewWorkout,
+      icon: 'fas fa-clipboard-list',
+      action: this.navigate,
       color: this.randomColor(),
       positionTop: '-12px',
-      positionLeft: '-9px'
+      positionLeft: '-9px',
+      route: '/log-workout'
     },
     {
       id: 'three',
-      icon: '',
-      action: this.createNewWorkout,
+      icon: 'fas fa-person-booth',
+      action: this.navigate,
       color: this.randomColor(),
       positionTop: '-23px',
-      positionLeft: ''
+      positionLeft: '',
+      route: '/create-user'
     }
   ];
 
@@ -65,8 +68,8 @@ onClick(btn){
     document.removeEventListener('click', this.listenForNextClick);
   }
 
-  createNewWorkout(){
-    console.log('create')
+  navigate(route:string){
+    window.location.href = route;
   }
 
   randomColor(){

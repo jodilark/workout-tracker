@@ -1,7 +1,7 @@
 <div class="menu_component_container">
   <div class="options_container" *ngIf="menuIsOpen">
     <div class="option" *ngFor="let option of options">
-      <div id="{{option.id}}" (click)="option.action()"></div>
+      <div id="{{option.id}}" (click)="option.action(option.route)"><i class="{{option.icon}}"></i></div>
     </div>
   </div>
   <div class="button_container" (click)="openMenu()">
