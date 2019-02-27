@@ -1,3 +1,24 @@
-<p>
-  history works!
-</p>
+<ul class="table_header">
+  <li>
+    <p class="workout_label">Workout</p>
+    <span class="workout_details">
+      <p>Sets</p>
+      <p>Weight</p>
+      <p>Reps</p>
+      <p>Day</p>
+    </span>
+  </li>
+</ul>
+<div class="workout_list_container">
+  <ul class="workout_list" *ngFor="let workout of (workouts | sortBy)">
+    <li>
+      <p class="line_label">{{workout.type}}</p>
+      <div>
+        <p>{{workout.sets}}</p>
+        <p>{{workout.weight}}lbs</p>
+        <p>{{workout.reps}}</p>
+        <p>{{workout.date | date}}</p>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -9,6 +9,7 @@ import { WorkoutCreatorComponent } from './workout-creator/workout-creator.compo
 import { HomeComponent } from './home/home.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LogWorkoutComponent } from './log-workout/log-workout.component';
+import { SortByPipe } from './shared/sort.component.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LogWorkoutComponent } from './log-workout/log-workout.component';
     WorkoutCreatorComponent,
     HomeComponent,
     CreateUserComponent,
-    LogWorkoutComponent
+    LogWorkoutComponent,
+    SortByPipe,
   ],
   imports: [
     BrowserModule,
