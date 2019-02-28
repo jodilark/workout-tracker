@@ -31,27 +31,40 @@ app.use(bodyParser.json());
 //     app.set('db', db),
 //       console.log('connected to database')
 //   });
-var exercises = [
-    {
-        name:'bench'
-    }
-], history = [
-    {
-        exercise: 'bench',
-        date: '20190301',
-        reps: [
-            {
-                weight: 45
-            }
-        ]
-    }
-]
+var id = 0;
+var workouts = [];
 
-//ITEMS
-// app.get('/api/items', (req, res, next) => {
-//     res.status(200).send(items);
-// });
+app.get('/api/workouts', (req, res)=> {
+    res.status(200).send(workouts);
+});
 
+app.get('/api/workout', (req, res) => {
+    req.query.id--;
+    res.status(200).send(workouts[req.query.id]);
+});
+
+app.post('/api/createWorkout', (req, res) => {
+    id++;
+    req.body.id = id;
+    workouts.push(req.body);
+    res.status(200).send(workouts);
+});
+
+app.put('/api/update', (req, res) => {
+    let originalWorkoutIdx = workouts.forEach((e, i)=> {
+        if(workouts.indexOf(e.id, req.body.id) > -1){
+            return i;
+        }
+    });
+    workouts.splice(originalWorkoutIdx, 1, req.body);
+    res.status(200).send(workouts);
+});
+
+app.delete('/api/workout', (req, res) => {
+    req.query.id--;
+    workouts.splice(req.query.id, 1);
+    res.status(200).send(workouts);
+});
 
 app.listen(port, function(){
     console.log('listening on port: ', port);

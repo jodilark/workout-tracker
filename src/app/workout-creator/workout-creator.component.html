@@ -1,4 +1,15 @@
-<div class="button_container">
-  <button (click)="createWorkout()">Create</button>
-  <button (click)="toHome()">Cancel</button>
+<div class="workout_creator_container">
+  <select (change)="onChange($event.target.value)">
+      <option [ngValue]="null" disabled selected>Select workout to edit</option>
+      <option *ngFor="let workout of workouts"[value]="workout">{{workout}}</option>
+  </select>
+  <form ng-form #workoutForm autocomplete="off"> 
+    <input type="text" placeholder="Workout type" [(ngModel)]="type" name="type" required>
+    <input type="number" min=0 step='1' placeholder="Sets" [(ngModel)]="sets" name ="sets">
+    <input type="number" min=0 step='1' placeholder="reps" [(ngModel)]="reps" name="reps">
+  </form>
+  <div class="button_container">
+    <button type="submit" (click)="createWorkout(); workoutForm.submit()">{{createText}}</button>
+    <button type="reset" (click)="toHome(); workoutForm.reset()">Cancel</button>
+  </div>
 </div>

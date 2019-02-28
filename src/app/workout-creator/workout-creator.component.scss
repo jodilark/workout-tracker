@@ -1,0 +1,47 @@
+.workout_creator_container {
+    background-color: #212121;
+    height: 100vh;
+    padding: 5px;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    select {
+        height: 30px;
+    }
+    input {
+        height: 60px;
+    }
+    input, select {
+        width: 100%;
+        background: #cbbebe;
+        color: #333;
+        border-radius: 0px;
+        border-style: none;
+        border: 1px solid #333;
+        border-top: none;
+    }
+    button {
+        text-transform: uppercase;
+        background: rgb(187, 54, 37);
+        border: 2px solid #b7b7b7;
+        border-style:outset;
+        height: 100%;
+        border-radius: 20px;
+        color: #b7b7b7;
+        text-shadow: 1px 1px #333;
+    }
+    .button_container {
+        height: 60px;
+        background: #273544;
+        color: #b7b7b7;
+        width: 100%;
+        border: 1px solid #333;
+        margin-top: 10px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around;
+    }
+}
